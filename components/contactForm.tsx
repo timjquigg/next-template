@@ -13,6 +13,9 @@ export default function ContactForm() {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
+  const [emailError, setEmailError] = useState(" ");
+  const [subjectError, setSubjectError] = useState(" ");
+  const [bodyError, setBodyError] = useState(" ");
 
   const boxStyle: SxProps = {
     width: "100%",
@@ -24,7 +27,7 @@ export default function ContactForm() {
 
   const textFieldStyle: SxProps = {
     mx: "0",
-    my: "0.5rem",
+    // my: "0.5rem",
     p: "0.5rem",
     color: (theme: ThemeOptions) => theme?.palette?.secondary.main,
   };
@@ -35,25 +38,51 @@ export default function ContactForm() {
 
   const onEmailChange = (value: string) => {
     setEmail(value);
+    setEmailError("");
   };
 
   const onSubjectChange = (value: string) => {
     setSubject(value);
+    setSubjectError("");
   };
 
   const onBodyChange = (value: string) => {
     setBody(value);
+    setBodyError("");
   };
 
   const handleSubmit = () => {
-    // Send to API route for e-mailing
-    handleCancel();
+    let errors = false;
+    if (email.length === 0) {
+      errors = true;
+      setEmailError("Email is required");
+    }
+    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+      errors = true;
+      setEmailError("Please enter valid e-mail address");
+    }
+
+    if (subject.length === 0) {
+      errors = true;
+      setSubjectError("Subject is required");
+    }
+    if (body.length === 0) {
+      errors = true;
+      setBodyError("Please enter in a message for your email");
+    }
+    if (!errors) {
+      // Send to API route for e-mailing
+      handleCancel();
+    }
   };
 
   const handleCancel = () => {
     setEmail("");
     setSubject("");
     setBody("");
+    setEmailError(" ");
+    setSubjectError(" ");
+    setBodyError(" ");
   };
 
   return (
@@ -64,26 +93,50 @@ export default function ContactForm() {
         variant="outlined"
         fullWidth
         autoFocus
+        error={emailError.length > 1}
+        helperText={emailError}
         label="Email"
         type="email"
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            handleSubmit();
+          }
+        }}
         sx={textFieldStyle}
       />
       <TextField
-        variant="outlined"
         value={subject}
         onChange={(e) => onSubjectChange(e.target.value)}
+        variant="outlined"
         fullWidth
+        error={subjectError.length > 1}
+        helperText={subjectError}
         label="subject"
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            handleSubmit();
+          }
+        }}
         sx={textFieldStyle}
       />
       <TextField
-        variant="outlined"
         value={body}
         onChange={(e) => onBodyChange(e.target.value)}
+        variant="outlined"
         multiline
         fullWidth
         minRows={3}
+        error={bodyError.length > 1}
+        helperText={bodyError}
         label="Message"
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            handleSubmit();
+          }
+        }}
         sx={textFieldStyle}
       />
       <ButtonGroup>
