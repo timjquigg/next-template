@@ -29,6 +29,8 @@ export default function Navbar() {
     maxHeight: "100px",
     p: "1rem",
     mx: "auto",
+    zIndex: 1,
+    // elevation: 24,
     bgcolor: (theme: ThemeOptions) => theme.palette?.primary?.main,
   };
 
@@ -52,7 +54,7 @@ export default function Navbar() {
   };
 
   return (
-    <Paper id="banner" sx={bannerStyle}>
+    <Paper id="banner" elevation={24} sx={bannerStyle}>
       <Typography component={Link} href="/" variant="h2" sx={titleStyle}>
         Header
       </Typography>

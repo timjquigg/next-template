@@ -3,7 +3,7 @@ import { Box, SxProps } from "@mui/system";
 import Footer from "./footer";
 import Navbar from "./navbar";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
-import { Paper } from "@mui/material";
+import { Container, Paper } from "@mui/material";
 
 type Props = {
   children?: ReactNode;
@@ -23,10 +23,10 @@ export default function Layout(props: Props) {
   };
 
   return (
-    <Box sx={boxStyle}>
+    <Container sx={boxStyle}>
       <Navbar />
-      <Paper>{props.children}</Paper>
+      <Box>{props.children}</Box>
       <Footer />
-    </Box>
+    </Container>
   );
 }

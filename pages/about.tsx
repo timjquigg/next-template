@@ -16,6 +16,7 @@ export default function About() {
   };
 
   const textStyle: SxProps = {
+    m: "0.5rem",
     color: (theme: ThemeOptions) => theme?.palette?.text?.secondary,
   };
 

@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@emotion/react";
+import { ThemeProvider } from "@mui/material";
 import { PaletteMode } from "@mui/material";
 import { useMediaQuery } from "@mui/material";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
