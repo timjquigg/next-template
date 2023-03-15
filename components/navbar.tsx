@@ -30,7 +30,8 @@ export default function Navbar() {
     p: "1rem",
     mx: "auto",
     zIndex: 1,
-    // elevation: 24,
+    borderRadius: "0 0 0.5rem 0.5rem",
+    // borderRadius: "0",
     bgcolor: (theme: ThemeOptions) => theme.palette?.primary?.main,
   };
 
@@ -44,7 +45,6 @@ export default function Navbar() {
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-end",
-    color: (theme: ThemeOptions) => theme?.palette?.text?.primary,
   };
 
   const buttonStyle: SxProps = {
@@ -55,7 +55,13 @@ export default function Navbar() {
 
   return (
     <Paper id="banner" elevation={24} sx={bannerStyle}>
-      <Typography component={Link} href="/" variant="h2" sx={titleStyle}>
+      <Typography
+        className="brand"
+        component={Link}
+        href="/"
+        variant="h2"
+        sx={titleStyle}
+      >
         Header
       </Typography>
       <ButtonGroup sx={menuStyle}>

@@ -13,13 +13,12 @@ export default function Section2() {
     justifyContent: "center",
     width: "100%",
     height: bodyHeight,
-    // my: "1rem",
     p: "2rem",
     mx: "auto",
+    my: ".5rem",
   };
 
   const carouselStyle: SxProps = {
-    // height: "100%",
     width: "50%",
     mx: "auto",
     my: "auto",
@@ -39,17 +38,10 @@ export default function Section2() {
     verticalAlign: "middle",
   };
 
-  const textStyle: SxProps = {
-    m: "0.5rem",
-    color: (theme: ThemeOptions) => theme?.palette?.text?.secondary,
-  };
-
   return (
     <Box id="second" bgcolor="primary.dark" sx={boxStyle}>
-      <Typography variant="h1" sx={textStyle}>
-        Section 2
-      </Typography>
-      <Typography variant="body1" sx={textStyle}>
+      <Typography variant="h1">Section 2</Typography>
+      <Typography variant="body1">
         I'm baby succulents gochujang marxism umami, exercitation officia put a
         bird on it praxis commodo ascot tbh pitchfork paleo keffiyeh drinking
         vinegar. Next level poke direct trade subway tile single-origin coffee
@@ -64,10 +56,8 @@ export default function Section2() {
         sx={carouselStyle}
       >
         <Paper elevation={10} sx={paperStyle}>
-          <Typography variant="h2" sx={textStyle}>
-            Section 2A
-          </Typography>
-          <Typography variant="body1" sx={textStyle}>
+          <Typography variant="h3">Section 2A</Typography>
+          <Typography variant="body1">
             I'm baby whatever twee four loko fingerstache, messenger bag lyft
             kitsch. Kale chips taxidermy brunch, yr consectetur ut sint. Ipsum
             prism eiusmod vaporware, mustache selfies direct trade. Etsy ex YOLO
@@ -77,10 +67,8 @@ export default function Section2() {
           </Typography>
         </Paper>
         <Paper elevation={10} sx={paperStyle}>
-          <Typography variant="h2" sx={textStyle}>
-            Section 2B
-          </Typography>
-          <Typography variant="body1" sx={textStyle}>
+          <Typography variant="h3">Section 2B</Typography>
+          <Typography variant="body1">
             Ullamco kitsch forage pork belly hella gatekeep, glossier swag in.
             Sriracha kitsch hammock incididunt keytar ramps. Affogato gentrify
             iPhone live-edge ut messenger bag subway tile iceland. Semiotics
@@ -91,10 +79,8 @@ export default function Section2() {
           </Typography>
         </Paper>
         <Paper elevation={10} sx={paperStyle}>
-          <Typography variant="h2" sx={textStyle}>
-            Section 2C
-          </Typography>
-          <Typography variant="body1" sx={textStyle}>
+          <Typography variant="h3">Section 2C</Typography>
+          <Typography variant="body1">
             Jean shorts et umami normcore chillwave. Jawn man bun messenger bag
             tumeric banjo commodo lyft. Ethical hot chicken four loko drinking
             vinegar duis hammock labore, gluten-free blackbird spyplane officia.

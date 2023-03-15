@@ -15,17 +15,10 @@ export default function Section3() {
     mx: "1rem",
   };
 
-  const textStyle: SxProps = {
-    m: "0.5rem",
-    color: (theme: ThemeOptions) => theme?.palette?.text?.secondary,
-  };
-
   return (
     <Box id="third" sx={boxStyle}>
-      <Typography variant="h1" sx={textStyle}>
-        Third Section
-      </Typography>
-      <Typography variant="body1" sx={textStyle}>
+      <Typography variant="h1">Third Section</Typography>
+      <Typography variant="body1">
         I'm baby jOMO etsy direct trade hexagon single-origin coffee bespoke
         freegan fingerstache. Fingerstache stumptown vape next level skateboard,
         consectetur ipsum deep v minim chillwave street art +1 cloud bread venmo

@@ -15,18 +15,11 @@ export default function About() {
     mx: "1rem",
   };
 
-  const textStyle: SxProps = {
-    m: "0.5rem",
-    color: (theme: ThemeOptions) => theme?.palette?.text?.secondary,
-  };
-
   return (
     <>
       <Box id="about" sx={boxStyle}>
-        <Typography variant="h1" sx={textStyle}>
-          About
-        </Typography>
-        <Typography variant="body1" sx={textStyle}>
+        <Typography variant="h1">About</Typography>
+        <Typography variant="body1">
           I'm baby chartreuse enim pok pok, laboris irure ramps gentrify
           pariatur chillwave. Kogi bicycle rights put a bird on it, raclette
           taiyaki copper mug aliqua selvage ugh chambray retro. Craft beer tonx

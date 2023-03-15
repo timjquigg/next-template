@@ -15,17 +15,10 @@ export default function Section1() {
     mx: "1rem",
   };
 
-  const textStyle: SxProps = {
-    m: "0.5rem",
-    color: (theme: ThemeOptions) => theme?.palette?.text?.secondary,
-  };
-
   return (
     <Box id="main" sx={boxStyle}>
-      <Typography variant="h1" sx={textStyle}>
-        Title of Page
-      </Typography>
-      <Typography variant="body1" sx={textStyle}>
+      <Typography variant="h1">Title of Page</Typography>
+      <Typography variant="body1">
         I'm baby kickstarter tbh chillwave echo park semiotics. Humblebrag venmo
         snackwave craft beer XOXO live-edge. Biodiesel vexillologist raclette
         chillwave, artisan locavore 8-bit jean shorts fixie cupping slow-carb.

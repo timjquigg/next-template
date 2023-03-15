@@ -16,17 +16,10 @@ export default function About() {
     mx: "1rem",
   };
 
-  const textStyle: SxProps = {
-    m: "0.5rem",
-    color: (theme: ThemeOptions) => theme?.palette?.text?.secondary,
-  };
-
   return (
     <>
       <Box id="about" sx={boxStyle}>
-        <Typography variant="h1" sx={textStyle}>
-          Contact Us
-        </Typography>
+        <Typography variant="h1">Contact Us</Typography>
         <ContactForm />
       </Box>
     </>
