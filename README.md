@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Website Template
+
+## Purpose
+
+This is a generic professional website template that will be used to quickly create and deploy professional portfolio and home pages.
 
 ## Getting Started
 
@@ -14,25 +18,30 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Technologies used
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Next.js was used as the backbone for this project as the resulting pages can be CDN hosted and allow for a serverless API route to handle sending of contact e-mails.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Material UI is used for the extensive component library and styling features.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Nodemailer will be used on the API route to handle sending of e-mails generated from the contact form on the website.
 
-## Learn More
+This project is being coded using TypeScript.
 
-To learn more about Next.js, take a look at the following resources:
+## To-do
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Complete API route and nodemailer setup
+- Update About page to include placeholders for badges:
+  - LinkedIn
+  - github
+  - Facebook
+  - etc
+- Move data for Carousel to an array and have it populate the carousel programatically instead of hard coded carousel cards
+- Move logic from display code for Contact Form and NavBar
+- Update documentation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Resources:
 
-## Deploy on Vercel
+https://nextjs.org/
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+https://mui.com/
