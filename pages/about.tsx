@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { SxProps, ThemeOptions } from "@mui/system";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
+import { about } from "@/lib/data";
 
 export default function About() {
   const { bodyHeight } = useWindowDimensions();
@@ -18,15 +19,8 @@ export default function About() {
   return (
     <>
       <Box id="about" sx={boxStyle}>
-        <Typography variant="h1">About</Typography>
-        <Typography variant="body1">
-          I'm baby chartreuse enim pok pok, laboris irure ramps gentrify
-          pariatur chillwave. Kogi bicycle rights put a bird on it, raclette
-          taiyaki copper mug aliqua selvage ugh chambray retro. Craft beer tonx
-          truffaut tofu ut. Tofu proident wolf banjo yes plz fugiat kickstarter
-          small batch schlitz kitsch austin try-hard brunch. Retro deep v yr
-          shaman everyday carry ethical.
-        </Typography>
+        <Typography variant="h1">{about.title}</Typography>
+        <Typography variant="body1">{about.description}</Typography>
       </Box>
     </>
   );
