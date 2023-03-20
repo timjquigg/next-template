@@ -1,26 +1,10 @@
 import { Box, Paper, Typography } from "@mui/material";
-import { SxProps, ThemeOptions } from "@mui/system";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 import { pageThree } from "@/lib/data";
 
-const containerStyle: SxProps = {
-  // m: "1rem",
-  p: "1rem",
-  my: "1rem",
-};
-
-const boxStyle = (bodyHeight: number): SxProps => {
-  return {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
-    height: bodyHeight,
-  };
-};
+import { containerStyle, boxStyle } from "./section3.styles";
 
 export default function Section3() {
   const { bannerHeight, bodyHeight } = useWindowDimensions();

@@ -1,11 +1,8 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import { Typography, Box } from "@mui/material";
-import { SxProps, ThemeOptions } from "@mui/system";
 
 const inter = Inter({ subsets: ["latin"] });
 
-import useWindowDimensions from "@/hooks/useWindowDimensions";
 import HomePage from "@/components/homePage";
 
 export default function Home() {
@@ -18,7 +15,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main style={{ padding: 0 }}>
-        {/* <main> */}
         <HomePage />
       </main>
     </>

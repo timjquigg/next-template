@@ -1,10 +1,7 @@
 import { MouseEvent } from "react";
 import {
-  Box,
   Button,
   ButtonGroup,
-  SxProps,
-  ThemeOptions,
   Typography,
   IconButton,
   useTheme,
@@ -14,56 +11,19 @@ import {
   Menu,
   MenuItem,
   Tooltip,
-  ListItemIcon,
-  ListItemText,
 } from "@mui/material";
 import { LightMode, DarkMode, Menu as MenuIcon } from "@mui/icons-material";
-import Link from "./link";
-import { SyntheticEvent, useContext, useState } from "react";
+import Link from "../lib/link";
+import { useContext, useState } from "react";
 import { ColorModeContext } from "@/styles/theme";
 import { navData } from "@/lib/data";
 
-const bannerStyle: SxProps = {
-  position: "sticky",
-  top: 0,
-  left: 0,
-  display: "flex",
-  justifyContent: "space-between",
-  maxWidth: "1200px",
-  width: "100%",
-  maxHeight: "100px",
-  p: "1rem",
-  mx: "auto",
-  zIndex: 1,
-  borderRadius: "0 0 0.5rem 0.5rem",
-  // borderRadius: "0",
-  bgcolor: (theme: ThemeOptions) => theme.palette?.primary?.main,
-};
-
-const titleStyle: SxProps = {
-  my: "auto",
-  color: (theme: ThemeOptions) => theme?.palette?.text?.primary,
-  textDecoration: "none",
-};
-
-const menuStyle: SxProps = {
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "flex-end",
-  textAlign: "center",
-  // bgcolor: (theme: ThemeOptions) => theme?.palette?.primary?.main,
-};
-
-const buttonStyle: SxProps = {
-  mx: "0.5rem",
-  color: (theme: ThemeOptions) => theme?.palette?.text?.primary,
-};
-
-const menuItemStyle: SxProps = {
-  bgcolor: (theme: ThemeOptions) => theme?.palette?.primary?.main,
-  p: "auto",
-  mx: "auto",
-};
+import {
+  bannerStyle,
+  titleStyle,
+  menuStyle,
+  buttonStyle,
+} from "./navbar.styles";
 
 export default function Navbar() {
   const theme = useTheme();
@@ -100,25 +60,12 @@ export default function Navbar() {
         key={page.title + "small"}
         disableGutters
         onClick={handleClose}
-        // variant="text"
         component={Link}
         href={page.link}
         sx={buttonStyle}
-        // sx={menuItemStyle}
       >
         {page.title}
       </MenuItem>
-      // <MenuItem key={page.title + "small"} disableGutters sx={menuItemStyle}>
-      //   <Button
-      //     onClick={handleClose}
-      //     variant="text"
-      //     component={Link}
-      //     href={page.link}
-      //     sx={buttonStyle}
-      //   >
-      //     {page.title}
-      //   </Button>
-      // </MenuItem>
     );
   });
 
@@ -157,7 +104,6 @@ export default function Navbar() {
           </Menu>
         </ButtonGroup>
       )}
-      {/* </Box> */}
     </Paper>
   );
 }

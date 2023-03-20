@@ -1,26 +1,10 @@
 import { Box, Typography } from "@mui/material";
-import { SxProps, ThemeOptions } from "@mui/system";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 import { pageOne } from "@/lib/data";
 
-const containerStyle: SxProps = {
-  // m: "1rem",
-  p: "1rem",
-};
-
-const boxStyle = (bodyHeight: number): SxProps => {
-  return {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
-    maxWidth: "600px",
-    height: bodyHeight,
-  };
-};
+import { containerStyle, boxStyle } from "./section1.styles";
 
 export default function Section1() {
   const { bodyHeight } = useWindowDimensions();

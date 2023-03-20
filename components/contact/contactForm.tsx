@@ -1,11 +1,10 @@
+import { useState } from "react";
 import {
-  Box,
-  Paper,
-  SxProps,
   TextField,
   Button,
   ButtonGroup,
   Typography,
+  Box,
   useMediaQuery,
   Theme,
 } from "@mui/material";
@@ -20,9 +19,6 @@ import {
   buttonStyle,
 } from "./contactForm.styles";
 
-import { ThemeOptions } from "@mui/system";
-import { useState } from "react";
-
 type Props = {
   xs?: number;
   sm?: number;
@@ -30,42 +26,6 @@ type Props = {
   lg?: number;
   xl?: number;
 };
-
-// const gridStyle: SxProps = {
-//   display: "flex",
-//   justifyContent: "center",
-// };
-
-// const boxStyle = (bodyHeight: number): SxProps => {
-//   return {
-//     display: "flex",
-//     flexDirection: "column",
-//     alignItems: "center",
-//     justifyContent: "center",
-//     width: "100%",
-//     maxWidth: "600px",
-//     height: bodyHeight,
-//   };
-// };
-
-// const formStyle: SxProps = {
-//   width: "100%",
-//   m: "0",
-//   p: "1rem",
-//   textAlign: "center",
-//   // bgcolor: (theme: ThemeOptions) => theme?.palette?.primary.main,
-// };
-
-// const textFieldStyle: SxProps = {
-//   mx: "0",
-//   // my: "0.5rem",
-//   p: "0.5rem",
-//   color: (theme: ThemeOptions) => theme?.palette?.secondary.main,
-// };
-
-// const buttonStyle: SxProps = {
-//   mx: "0.5rem",
-// };
 
 export default function ContactForm(props: Props) {
   const { bodyHeight } = useWindowDimensions();

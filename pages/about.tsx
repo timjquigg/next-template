@@ -1,25 +1,9 @@
 import { Box, Typography } from "@mui/material";
-import { SxProps } from "@mui/system";
 import Grid from "@mui/material/Unstable_Grid2";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 import { about } from "@/lib/data";
 
-const containerStyle: SxProps = {
-  // m: "1rem",
-  px: "1rem",
-};
-
-const boxStyle = (bodyHeight: number): SxProps => {
-  return {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
-    height: bodyHeight,
-    mx: "1rem",
-  };
-};
+import { containerStyle, boxStyle } from "./about.styles";
 
 export default function About() {
   const { bodyHeight } = useWindowDimensions();

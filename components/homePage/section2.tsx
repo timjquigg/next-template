@@ -1,48 +1,16 @@
 import { Box, Paper, Typography } from "@mui/material";
-import { SxProps, ThemeOptions } from "@mui/system";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import Carousel from "react-material-ui-carousel";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 import { pageTwo } from "@/lib/data";
 
-const containerStyle: SxProps = {
-  // m: "1rem",
-  p: "1rem",
-};
-
-const boxStyle = (bodyHeight: number): SxProps => {
-  return {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    width: "100%",
-    height: bodyHeight,
-    p: "1rem",
-  };
-};
-
-const carouselStyle: SxProps = {
-  width: "100%",
-  mx: "auto",
-  my: "1rem",
-  p: "1rem",
-  zIndex: 0,
-  verticalAlign: "middle",
-};
-
-const paperStyle: SxProps = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  m: "auto",
-  p: "1rem",
-  width: "80%",
-  height: "80%",
-  verticalAlign: "middle",
-};
+import {
+  containerStyle,
+  boxStyle,
+  carouselStyle,
+  paperStyle,
+} from "./section2.styles";
 
 export default function Section2() {
   const { bodyHeight } = useWindowDimensions();

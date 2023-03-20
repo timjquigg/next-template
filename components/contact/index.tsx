@@ -1,21 +1,10 @@
 import { Box, useMediaQuery, Theme } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import { SxProps } from "@mui/system";
 import ContactForm from "@/components/contact/contactForm";
 import ContactInfo from "./contactInfo";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 
-const containerStyle = (bodyHeight: number, large: boolean): SxProps => {
-  return {
-    overflow: large ? "hidden" : "",
-    py: "0",
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "baseline",
-    height: bodyHeight,
-    // border: "solid red",
-  };
-};
+import { containerStyle } from "./index.styles";
 
 export default function ContactPage() {
   const { bodyHeight } = useWindowDimensions();
