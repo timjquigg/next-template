@@ -18,6 +18,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main style={{ padding: 0 }}>
+        {/* <main> */}
         <HomePage />
       </main>
     </>

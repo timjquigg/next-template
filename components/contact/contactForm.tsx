@@ -6,9 +6,19 @@ import {
   Button,
   ButtonGroup,
   Typography,
+  useMediaQuery,
+  Theme,
 } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
+
+import {
+  gridStyle,
+  boxStyle,
+  formStyle,
+  textFieldStyle,
+  buttonStyle,
+} from "./contactForm.styles";
 
 import { ThemeOptions } from "@mui/system";
 import { useState } from "react";
@@ -21,44 +31,45 @@ type Props = {
   xl?: number;
 };
 
-const gridStyle: SxProps = {
-  display: "flex",
-  justifyContent: "center",
-};
+// const gridStyle: SxProps = {
+//   display: "flex",
+//   justifyContent: "center",
+// };
 
-const boxStyle = (bodyHeight: number): SxProps => {
-  return {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
-    maxWidth: "600px",
-    height: bodyHeight,
-  };
-};
+// const boxStyle = (bodyHeight: number): SxProps => {
+//   return {
+//     display: "flex",
+//     flexDirection: "column",
+//     alignItems: "center",
+//     justifyContent: "center",
+//     width: "100%",
+//     maxWidth: "600px",
+//     height: bodyHeight,
+//   };
+// };
 
-const formStyle: SxProps = {
-  width: "100%",
-  m: "0",
-  p: "1rem",
-  textAlign: "center",
-  // bgcolor: (theme: ThemeOptions) => theme?.palette?.primary.main,
-};
+// const formStyle: SxProps = {
+//   width: "100%",
+//   m: "0",
+//   p: "1rem",
+//   textAlign: "center",
+//   // bgcolor: (theme: ThemeOptions) => theme?.palette?.primary.main,
+// };
 
-const textFieldStyle: SxProps = {
-  mx: "0",
-  // my: "0.5rem",
-  p: "0.5rem",
-  color: (theme: ThemeOptions) => theme?.palette?.secondary.main,
-};
+// const textFieldStyle: SxProps = {
+//   mx: "0",
+//   // my: "0.5rem",
+//   p: "0.5rem",
+//   color: (theme: ThemeOptions) => theme?.palette?.secondary.main,
+// };
 
-const buttonStyle: SxProps = {
-  mx: "0.5rem",
-};
+// const buttonStyle: SxProps = {
+//   mx: "0.5rem",
+// };
 
 export default function ContactForm(props: Props) {
   const { bodyHeight } = useWindowDimensions();
+  const large = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
 
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
@@ -125,7 +136,7 @@ export default function ContactForm(props: Props) {
       xl={props.xl}
       sx={gridStyle}
     >
-      <Box id="email_us" sx={boxStyle(bodyHeight)}>
+      <Box id="email_us" sx={boxStyle(bodyHeight, large)}>
         <Typography variant="h3">E-mail Us</Typography>
         <Box sx={formStyle}>
           <TextField

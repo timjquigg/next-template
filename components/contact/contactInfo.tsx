@@ -41,6 +41,7 @@ type Props = {
 const gridStyle: SxProps = {
   display: "flex",
   justifyContent: "center",
+  p: 0,
 };
 
 const boxStyle = (bodyHeight: number): SxProps => {
@@ -48,7 +49,7 @@ const boxStyle = (bodyHeight: number): SxProps => {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center",
+    // justifyContent: "center",
     width: "100%",
     maxWidth: "600px",
     height: bodyHeight,
@@ -84,9 +85,6 @@ const imageStyle = (
   xLarge: boolean
 ): SxProps => {
   let diameter = contactCardHeight / 3;
-  console.log(
-    `small: ${small}\nmedium: ${medium}\nlarge: ${large}\nxLarge: ${xLarge}`
-  );
 
   if (medium) {
     diameter = contactCardHeight / 2.5;
@@ -115,7 +113,6 @@ export default function ContactInfo(props: Props) {
   const large = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
   const xLarge = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"));
 
-  console.log(contactCardHeight, bodyHeight);
   return (
     <Grid
       xs={props.xs}

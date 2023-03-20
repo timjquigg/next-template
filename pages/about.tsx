@@ -6,7 +6,7 @@ import { about } from "@/lib/data";
 
 const containerStyle: SxProps = {
   // m: "1rem",
-  p: "1rem",
+  px: "1rem",
 };
 
 const boxStyle = (bodyHeight: number): SxProps => {

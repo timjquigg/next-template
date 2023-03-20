@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 
 function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
+  // const { innerWidth: width, innerHeight: height } = window;
+  const { clientWidth: width, clientHeight: height } = document.documentElement;
   return {
     width,
     height,
@@ -11,9 +12,9 @@ function getWindowDimensions() {
 function getElementHeights(height: number) {
   const contactHeight =
     document.getElementById("contactCard")?.clientHeight ?? 0;
-  console.log(contactHeight);
   const bannerHeight = document.getElementById("banner")?.clientHeight ?? 0;
   const bodyHeight = height - bannerHeight;
+  console.log({ bannerHeight }, { bodyHeight }, { contactHeight });
   return { contactHeight, bannerHeight, bodyHeight };
 }
 
