@@ -9,9 +9,12 @@ function getWindowDimensions() {
 }
 
 function getElementHeights(height: number) {
+  const contactHeight =
+    document.getElementById("contactCard")?.clientHeight ?? 0;
+  console.log(contactHeight);
   const bannerHeight = document.getElementById("banner")?.clientHeight ?? 0;
   const bodyHeight = height - bannerHeight;
-  return { bannerHeight, bodyHeight };
+  return { contactHeight, bannerHeight, bodyHeight };
 }
 
 export default function useWindowDimensions() {
@@ -21,6 +24,7 @@ export default function useWindowDimensions() {
   });
   const [bannerHeight, setBannerHeight] = useState(0);
   const [bodyHeight, setBodyHeight] = useState(0);
+  const [contactCardHeight, setContactCardHeight] = useState(0);
 
   useEffect(() => {
     setWindowDimensions(getWindowDimensions());
@@ -32,6 +36,7 @@ export default function useWindowDimensions() {
       const heights = getElementHeights(windowdimensions.height);
       setBannerHeight(heights.bannerHeight);
       setBodyHeight(heights.bodyHeight);
+      setContactCardHeight(heights.contactHeight);
     }
 
     window.addEventListener("resize", handleResize);
@@ -44,5 +49,5 @@ export default function useWindowDimensions() {
     setBodyHeight(heights.bodyHeight);
   }, [bannerHeight, windowdimensions.height]);
 
-  return { bannerHeight, bodyHeight };
+  return { contactCardHeight, bannerHeight, bodyHeight };
 }

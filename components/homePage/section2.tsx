@@ -39,9 +39,9 @@ export default function Section2() {
     verticalAlign: "middle",
   };
 
-  const carouselItems = pageTwo.carousel.map((el, i) => {
+  const carouselItems = pageTwo.carousel.map((el) => {
     return (
-      <Paper elevation={10} sx={paperStyle} key={i}>
+      <Paper elevation={10} sx={paperStyle} key={el.title}>
         <Typography variant="h3">{el.title}</Typography>
         <Typography variant="body1">{el.details}</Typography>
       </Paper>

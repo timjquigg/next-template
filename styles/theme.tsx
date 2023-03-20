@@ -1,10 +1,12 @@
-import { ThemeProvider } from "@mui/material";
+import { Color, ThemeProvider } from "@mui/material";
 import { PaletteMode } from "@mui/material";
 import { useMediaQuery } from "@mui/material";
 import {
   createTheme,
+  PaletteColor,
   PaletteOptions,
   responsiveFontSizes,
+  SimplePaletteColorOptions,
 } from "@mui/material/styles";
 import { createContext, useState, useMemo, useEffect } from "react";
 
@@ -99,6 +101,16 @@ export default function ToggleColorMode({ children }: Props) {
                   ? lightPalette?.text?.secondary
                   : darkPalette?.text?.secondary,
               m: "0.5rem",
+            },
+          },
+        },
+        MuiMenu: {
+          styleOverrides: {
+            list: {
+              backgroundColor:
+                mode === "light"
+                  ? lightPalette?.primary?.main
+                  : darkPalette?.primary?.main,
             },
           },
         },

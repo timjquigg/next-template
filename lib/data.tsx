@@ -38,6 +38,7 @@ export const pageThree = {
 
 export const contact = {
   name: "John Doe",
+  profile: "/blank-profile-picture-973460.png",
   address1: "123 Fake Street",
   address2: "Fake City, Province",
   email: "johndoe@example.com",

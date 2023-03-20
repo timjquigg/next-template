@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
+import useWindowDimensions from "@/hooks/useWindowDimensions";
 
 import { ThemeOptions } from "@mui/system";
 import { useState } from "react";
@@ -21,6 +22,8 @@ type Props = {
 };
 
 export default function ContactForm(props: Props) {
+  const { bodyHeight } = useWindowDimensions();
+
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
@@ -31,10 +34,9 @@ export default function ContactForm(props: Props) {
   const boxStyle: SxProps = {
     display: "flex",
     flexDirection: "column",
+    maxWidth: "600px",
     alignItems: "center",
-    // justifyContent: "center",
-    // width: "50%",
-    mx: "1rem",
+    m: "1rem",
   };
 
   const formStyle: SxProps = {
