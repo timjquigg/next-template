@@ -43,14 +43,16 @@ const gridStyle: SxProps = {
   justifyContent: "center",
 };
 
-const boxStyle: SxProps = {
-  display: "flex",
-  maxWidth: "600px",
-  width: "100%",
-  flexDirection: "column",
-  alignItems: "center",
-  // p: "1rem",
-  m: "1rem",
+const boxStyle = (bodyHeight: number): SxProps => {
+  return {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    maxWidth: "600px",
+    height: bodyHeight,
+  };
 };
 
 const listStyle: SxProps = {
@@ -76,10 +78,10 @@ const cardStyle = (large: boolean): SxProps => {
 
 const imageStyle = (
   contactCardHeight: number,
-  small: number,
-  medium: number,
-  large: number,
-  xLarge: number
+  small: boolean,
+  medium: boolean,
+  large: boolean,
+  xLarge: boolean
 ): SxProps => {
   let diameter = contactCardHeight / 3;
   console.log(
@@ -123,7 +125,7 @@ export default function ContactInfo(props: Props) {
       xl={props.xl}
       sx={gridStyle}
     >
-      <Box id="contact_info" sx={boxStyle}>
+      <Box id="contact_info" sx={boxStyle(bodyHeight)}>
         <Typography variant="h3">Contact Info</Typography>
         <Box sx={{ p: "1rem", width: "100%" }}>
           <Card id="contactCard" sx={cardStyle(large)}>

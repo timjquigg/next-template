@@ -26,13 +26,16 @@ const gridStyle: SxProps = {
   justifyContent: "center",
 };
 
-const boxStyle: SxProps = {
-  display: "flex",
-  maxWidth: "600px",
-  width: "100%",
-  flexDirection: "column",
-  alignItems: "center",
-  m: "1rem",
+const boxStyle = (bodyHeight: number): SxProps => {
+  return {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    maxWidth: "600px",
+    height: bodyHeight,
+  };
 };
 
 const formStyle: SxProps = {
@@ -122,7 +125,7 @@ export default function ContactForm(props: Props) {
       xl={props.xl}
       sx={gridStyle}
     >
-      <Box id="email_us" sx={boxStyle}>
+      <Box id="email_us" sx={boxStyle(bodyHeight)}>
         <Typography variant="h3">E-mail Us</Typography>
         <Box sx={formStyle}>
           <TextField
@@ -130,7 +133,7 @@ export default function ContactForm(props: Props) {
             onChange={(e) => onEmailChange(e.target.value)}
             variant="outlined"
             fullWidth
-            autoFocus
+            // autoFocus
             error={emailError.length > 1}
             helperText={emailError}
             label="Email"

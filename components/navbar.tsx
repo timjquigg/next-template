@@ -14,6 +14,8 @@ import {
   Menu,
   MenuItem,
   Tooltip,
+  ListItemIcon,
+  ListItemText,
 } from "@mui/material";
 import { LightMode, DarkMode, Menu as MenuIcon } from "@mui/icons-material";
 import Link from "./link";
@@ -48,6 +50,7 @@ const menuStyle: SxProps = {
   display: "flex",
   flexDirection: "row",
   alignItems: "flex-end",
+  textAlign: "center",
   // bgcolor: (theme: ThemeOptions) => theme?.palette?.primary?.main,
 };
 
@@ -58,6 +61,8 @@ const buttonStyle: SxProps = {
 
 const menuItemStyle: SxProps = {
   bgcolor: (theme: ThemeOptions) => theme?.palette?.primary?.main,
+  p: "auto",
+  mx: "auto",
 };
 
 export default function Navbar() {
@@ -91,17 +96,29 @@ export default function Navbar() {
 
   const smallNaveLinks = navData.pages.map((page) => {
     return (
-      <MenuItem key={page.title + "small"} disableGutters sx={menuItemStyle}>
-        <Button
-          onClick={handleClose}
-          variant="text"
-          component={Link}
-          href={page.link}
-          sx={buttonStyle}
-        >
-          {page.title}
-        </Button>
+      <MenuItem
+        key={page.title + "small"}
+        disableGutters
+        onClick={handleClose}
+        // variant="text"
+        component={Link}
+        href={page.link}
+        sx={buttonStyle}
+        // sx={menuItemStyle}
+      >
+        {page.title}
       </MenuItem>
+      // <MenuItem key={page.title + "small"} disableGutters sx={menuItemStyle}>
+      //   <Button
+      //     onClick={handleClose}
+      //     variant="text"
+      //     component={Link}
+      //     href={page.link}
+      //     sx={buttonStyle}
+      //   >
+      //     {page.title}
+      //   </Button>
+      // </MenuItem>
     );
   });
 
@@ -128,19 +145,17 @@ export default function Navbar() {
           </Tooltip>
         </ButtonGroup>
       ) : (
-        <>
+        <ButtonGroup>
+          <IconButton onClick={colorMode.toggleColorMode}>
+            {theme.palette.mode === "dark" ? <LightMode /> : <DarkMode />}
+          </IconButton>
           <IconButton onClick={handleClick}>
             <MenuIcon />
           </IconButton>
-          <Menu
-            open={open}
-            anchorEl={anchorEl}
-            onClose={handleClose}
-            // sx={{ backgroundColor: "red" }}
-          >
+          <Menu open={open} anchorEl={anchorEl} onClose={handleClose}>
             {smallNaveLinks}
           </Menu>
-        </>
+        </ButtonGroup>
       )}
       {/* </Box> */}
     </Paper>
