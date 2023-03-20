@@ -1,43 +1,51 @@
 import { Box, Paper, Typography } from "@mui/material";
 import { SxProps, ThemeOptions } from "@mui/system";
+import Grid from "@mui/material/Unstable_Grid2";
+
 import Carousel from "react-material-ui-carousel";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 import { pageTwo } from "@/lib/data";
 
-export default function Section2() {
-  const { bodyHeight } = useWindowDimensions();
+const containerStyle: SxProps = {
+  // m: "1rem",
+  p: "1rem",
+};
 
-  const boxStyle: SxProps = {
+const boxStyle = (bodyHeight: number): SxProps => {
+  return {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     width: "100%",
     height: bodyHeight,
-    p: "2rem",
-    mx: "auto",
-    my: ".5rem",
-  };
-
-  const carouselStyle: SxProps = {
-    width: "50%",
-    mx: "auto",
-    my: "auto",
-    zIndex: 0,
-    verticalAlign: "middle",
-  };
-
-  const paperStyle: SxProps = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    m: "auto",
     p: "1rem",
-    width: "80%",
-    height: "80%",
-    verticalAlign: "middle",
   };
+};
+
+const carouselStyle: SxProps = {
+  width: "100%",
+  mx: "auto",
+  my: "1rem",
+  p: "1rem",
+  zIndex: 0,
+  verticalAlign: "middle",
+};
+
+const paperStyle: SxProps = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  m: "auto",
+  p: "1rem",
+  width: "80%",
+  height: "80%",
+  verticalAlign: "middle",
+};
+
+export default function Section2() {
+  const { bodyHeight } = useWindowDimensions();
 
   const carouselItems = pageTwo.carousel.map((el) => {
     return (
@@ -49,17 +57,26 @@ export default function Section2() {
   });
 
   return (
-    <Box id="second" bgcolor="primary.dark" sx={boxStyle}>
-      <Typography variant="h1">{pageTwo.title}</Typography>
-      <Typography variant="body1">{pageTwo.details}</Typography>
-      <Carousel
-        animation="slide"
-        navButtonsAlwaysVisible={true}
-        sx={carouselStyle}
-      >
-        {carouselItems}
-      </Carousel>
-      {/* </Paper> */}
-    </Box>
+    <Grid container columns={12} sx={containerStyle}>
+      <Grid xs={12}>
+        <Box id="second" bgcolor="primary.dark" sx={boxStyle(bodyHeight)}>
+          <Box sx={{ textAlign: "center" }}>
+            <Typography variant="h1">{pageTwo.title}</Typography>
+            <Typography variant="body1" sx={{ maxWidth: "600px" }}>
+              {pageTwo.details}
+            </Typography>
+          </Box>
+          <Grid xs={10} sm={8} md={6} lg={6}>
+            <Carousel
+              animation="slide"
+              navButtonsAlwaysVisible={true}
+              sx={carouselStyle}
+            >
+              {carouselItems}
+            </Carousel>
+          </Grid>
+        </Box>
+      </Grid>
+    </Grid>
   );
 }

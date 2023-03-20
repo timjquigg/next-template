@@ -47,6 +47,7 @@ export default function useWindowDimensions() {
     const heights = getElementHeights(windowdimensions.height);
     setBannerHeight(heights.bannerHeight);
     setBodyHeight(heights.bodyHeight);
+    setContactCardHeight(heights.contactHeight);
   }, [bannerHeight, windowdimensions.height]);
 
   return { contactCardHeight, bannerHeight, bodyHeight };

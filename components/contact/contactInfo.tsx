@@ -38,11 +38,18 @@ type Props = {
   xl?: number;
 };
 
+const gridStyle: SxProps = {
+  display: "flex",
+  justifyContent: "center",
+};
+
 const boxStyle: SxProps = {
   display: "flex",
-  maxWidth: "600",
+  maxWidth: "600px",
+  width: "100%",
   flexDirection: "column",
   alignItems: "center",
+  // p: "1rem",
   m: "1rem",
 };
 
@@ -62,116 +69,154 @@ const cardStyle = (large: boolean): SxProps => {
     display: "flex",
     flexDirection: large ? "row" : "column",
     p: "1rem",
+    m: 0,
+    width: "100%",
   };
 };
 
-const imageStyle = (height: number): SxProps => {
+const imageStyle = (
+  contactCardHeight: number,
+  small: number,
+  medium: number,
+  large: number,
+  xLarge: number
+): SxProps => {
+  let diameter = contactCardHeight / 3;
+  console.log(
+    `small: ${small}\nmedium: ${medium}\nlarge: ${large}\nxLarge: ${xLarge}`
+  );
+
+  if (medium) {
+    diameter = contactCardHeight / 2.5;
+  }
+
+  if (large) {
+    diameter = contactCardHeight / 2;
+  }
+
+  if (xLarge) {
+    diameter = contactCardHeight / 1.5;
+  }
   return {
     m: "auto",
-    minWidth: height / 4,
-    minHeight: height / 4,
-    maxWidth: height / 2,
-    maxHeight: height / 2,
+    height: diameter,
+    width: diameter,
   };
 };
+
+const listIconStyle: SxProps = { minWidth: 0, mr: "1rem" };
 
 export default function ContactInfo(props: Props) {
   const { contactCardHeight, bodyHeight } = useWindowDimensions();
-  console.log(contactCardHeight);
-  const large = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
+  const small = useMediaQuery((theme: Theme) => theme.breakpoints.up("xs"));
+  const medium = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
+  const large = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
+  const xLarge = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"));
 
+  console.log(contactCardHeight, bodyHeight);
   return (
-    <Grid xs={props.xs} sm={props.sm} md={props.md} lg={props.lg} xl={props.xl}>
+    <Grid
+      xs={props.xs}
+      sm={props.sm}
+      md={props.md}
+      lg={props.lg}
+      xl={props.xl}
+      sx={gridStyle}
+    >
       <Box id="contact_info" sx={boxStyle}>
         <Typography variant="h3">Contact Info</Typography>
-        <Card id="contactCard" sx={cardStyle(large)}>
-          <Avatar
-            src={contact.profile}
-            alt="profile image"
-            sx={imageStyle(contactCardHeight)}
-          />
-          <Box sx={listStyle}>
-            <List>
-              <ListItem>
-                <ListItemIcon>
-                  <Badge />
-                </ListItemIcon>
-                <Typography variant="body2">{contact.name}</Typography>
-              </ListItem>
-              {contact.hasOwnProperty("address1") && (
-                <ListItem>
-                  <ListItemIcon>
-                    <Place />
+        <Box sx={{ p: "1rem", width: "100%" }}>
+          <Card id="contactCard" sx={cardStyle(large)}>
+            <Avatar
+              src={contact.profile}
+              alt="profile image"
+              sx={imageStyle(contactCardHeight, small, medium, large, xLarge)}
+            />
+            <Box sx={listStyle}>
+              <List>
+                <ListItem disableGutters>
+                  <ListItemIcon sx={listIconStyle}>
+                    <Badge />
                   </ListItemIcon>
-                  <div>
-                    <Typography variant="body2">{contact.address1}</Typography>
-                    {contact.hasOwnProperty("address2") && (
-                      <Typography variant="body2">
-                        {contact.address2}
-                      </Typography>
-                    )}
-                  </div>
+                  <Typography variant="body2">{contact.name}</Typography>
                 </ListItem>
-              )}
-              <ListItem>
-                <ListItemIcon>
-                  <Email />
-                </ListItemIcon>
-                <Typography variant="body2">johndoe@example.com</Typography>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <LocalPhone />
-                </ListItemIcon>
-                <Typography variant="body2">(123) 456-7890</Typography>
-              </ListItem>
-            </List>
-            <ButtonGroup sx={socialsStyle}>
-              {contact.hasOwnProperty("linkedIn") && (
-                <IconButton
-                  onClick={() => window.open(contact.linkedIn, "_blank")}
-                >
-                  <LinkedIn />
-                </IconButton>
-              )}
-              {contact.hasOwnProperty("facebook") && (
-                <IconButton
-                  onClick={() => window.open(contact.facebook, "_blank")}
-                >
-                  <Facebook />
-                </IconButton>
-              )}
-              {contact.hasOwnProperty("instagram") && (
-                <IconButton
-                  onClick={() => window.open(contact.instagram, "_blank")}
-                >
-                  <Instagram />
-                </IconButton>
-              )}
-              {contact.hasOwnProperty("youtube") && (
-                <IconButton
-                  onClick={() => window.open(contact.youtube, "_blank")}
-                >
-                  <YouTube />
-                </IconButton>
-              )}
-              {contact.hasOwnProperty("twitter") && (
-                <IconButton
-                  onClick={() => window.open(contact.twitter, "_blank")}
-                >
-                  <Twitter />
-                </IconButton>
-              )}
-              {contact.hasOwnProperty("github") && (
-                <IconButton
-                  onClick={() => window.open(contact.github, "_blank")}
-                >
-                  <GitHub />
-                </IconButton>
-              )}
-            </ButtonGroup>
-          </Box>
-        </Card>
+                {contact.hasOwnProperty("address1") && (
+                  <ListItem disableGutters>
+                    <ListItemIcon sx={listIconStyle}>
+                      <Place />
+                    </ListItemIcon>
+                    <div>
+                      <Typography variant="body2">
+                        {contact.address1}
+                      </Typography>
+                      {contact.hasOwnProperty("address2") && (
+                        <Typography variant="body2">
+                          {contact.address2}
+                        </Typography>
+                      )}
+                    </div>
+                  </ListItem>
+                )}
+                <ListItem disableGutters>
+                  <ListItemIcon sx={listIconStyle}>
+                    <Email />
+                  </ListItemIcon>
+                  <Typography variant="body2">johndoe@example.com</Typography>
+                </ListItem>
+                <ListItem disableGutters>
+                  <ListItemIcon sx={listIconStyle}>
+                    <LocalPhone />
+                  </ListItemIcon>
+                  <Typography variant="body2">(123) 456-7890</Typography>
+                </ListItem>
+              </List>
+              <ButtonGroup sx={socialsStyle}>
+                {contact.hasOwnProperty("linkedIn") && (
+                  <IconButton
+                    onClick={() => window.open(contact.linkedIn, "_blank")}
+                  >
+                    <LinkedIn />
+                  </IconButton>
+                )}
+                {contact.hasOwnProperty("facebook") && (
+                  <IconButton
+                    onClick={() => window.open(contact.facebook, "_blank")}
+                  >
+                    <Facebook />
+                  </IconButton>
+                )}
+                {contact.hasOwnProperty("instagram") && (
+                  <IconButton
+                    onClick={() => window.open(contact.instagram, "_blank")}
+                  >
+                    <Instagram />
+                  </IconButton>
+                )}
+                {contact.hasOwnProperty("youtube") && (
+                  <IconButton
+                    onClick={() => window.open(contact.youtube, "_blank")}
+                  >
+                    <YouTube />
+                  </IconButton>
+                )}
+                {contact.hasOwnProperty("twitter") && (
+                  <IconButton
+                    onClick={() => window.open(contact.twitter, "_blank")}
+                  >
+                    <Twitter />
+                  </IconButton>
+                )}
+                {contact.hasOwnProperty("github") && (
+                  <IconButton
+                    onClick={() => window.open(contact.github, "_blank")}
+                  >
+                    <GitHub />
+                  </IconButton>
+                )}
+              </ButtonGroup>
+            </Box>
+          </Card>
+        </Box>
       </Box>
     </Grid>
   );

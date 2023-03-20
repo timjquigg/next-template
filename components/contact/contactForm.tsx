@@ -21,6 +21,39 @@ type Props = {
   xl?: number;
 };
 
+const gridStyle: SxProps = {
+  display: "flex",
+  justifyContent: "center",
+};
+
+const boxStyle: SxProps = {
+  display: "flex",
+  maxWidth: "600px",
+  width: "100%",
+  flexDirection: "column",
+  alignItems: "center",
+  m: "1rem",
+};
+
+const formStyle: SxProps = {
+  width: "100%",
+  m: "0",
+  p: "1rem",
+  textAlign: "center",
+  // bgcolor: (theme: ThemeOptions) => theme?.palette?.primary.main,
+};
+
+const textFieldStyle: SxProps = {
+  mx: "0",
+  // my: "0.5rem",
+  p: "0.5rem",
+  color: (theme: ThemeOptions) => theme?.palette?.secondary.main,
+};
+
+const buttonStyle: SxProps = {
+  mx: "0.5rem",
+};
+
 export default function ContactForm(props: Props) {
   const { bodyHeight } = useWindowDimensions();
 
@@ -30,33 +63,6 @@ export default function ContactForm(props: Props) {
   const [emailError, setEmailError] = useState(" ");
   const [subjectError, setSubjectError] = useState(" ");
   const [bodyError, setBodyError] = useState(" ");
-
-  const boxStyle: SxProps = {
-    display: "flex",
-    flexDirection: "column",
-    maxWidth: "600px",
-    alignItems: "center",
-    m: "1rem",
-  };
-
-  const formStyle: SxProps = {
-    width: "100%",
-    m: "0",
-    p: "1rem",
-    textAlign: "center",
-    // bgcolor: (theme: ThemeOptions) => theme?.palette?.primary.main,
-  };
-
-  const textFieldStyle: SxProps = {
-    mx: "0",
-    // my: "0.5rem",
-    p: "0.5rem",
-    color: (theme: ThemeOptions) => theme?.palette?.secondary.main,
-  };
-
-  const buttonStyle: SxProps = {
-    mx: "0.5rem",
-  };
 
   const onEmailChange = (value: string) => {
     setEmail(value);
@@ -108,7 +114,14 @@ export default function ContactForm(props: Props) {
   };
 
   return (
-    <Grid xs={props.xs} sm={props.sm} md={props.md} lg={props.lg} xl={props.xl}>
+    <Grid
+      xs={props.xs}
+      sm={props.sm}
+      md={props.md}
+      lg={props.lg}
+      xl={props.xl}
+      sx={gridStyle}
+    >
       <Box id="email_us" sx={boxStyle}>
         <Typography variant="h3">E-mail Us</Typography>
         <Box sx={formStyle}>

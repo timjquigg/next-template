@@ -13,6 +13,7 @@ import {
   Theme,
   Menu,
   MenuItem,
+  Tooltip,
 } from "@mui/material";
 import { LightMode, DarkMode, Menu as MenuIcon } from "@mui/icons-material";
 import Link from "./link";
@@ -47,7 +48,7 @@ const menuStyle: SxProps = {
   display: "flex",
   flexDirection: "row",
   alignItems: "flex-end",
-  bgcolor: (theme: ThemeOptions) => theme?.palette?.primary?.main,
+  // bgcolor: (theme: ThemeOptions) => theme?.palette?.primary?.main,
 };
 
 const buttonStyle: SxProps = {
@@ -118,9 +119,13 @@ export default function Navbar() {
       {matches ? (
         <ButtonGroup sx={menuStyle}>
           {navLinks}
-          <IconButton onClick={colorMode.toggleColorMode}>
-            {theme.palette.mode === "dark" ? <LightMode /> : <DarkMode />}
-          </IconButton>
+          <Tooltip
+            title={theme.palette.mode === "dark" ? "Light Mode" : "Dark Mode"}
+          >
+            <IconButton onClick={colorMode.toggleColorMode}>
+              {theme.palette.mode === "dark" ? <LightMode /> : <DarkMode />}
+            </IconButton>
+          </Tooltip>
         </ButtonGroup>
       ) : (
         <>
