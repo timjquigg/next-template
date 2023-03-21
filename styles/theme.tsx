@@ -1,17 +1,11 @@
-import { Color, ThemeProvider } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
 import { PaletteMode } from "@mui/material";
 import { useMediaQuery } from "@mui/material";
 import {
   createTheme,
-  Palette,
-  PaletteColor,
-  PaletteColorOptions,
   PaletteOptions,
   responsiveFontSizes,
   SimplePaletteColorOptions,
-  ThemeOptions,
-  TypeBackground,
-  TypeText,
 } from "@mui/material/styles";
 import { createContext, useState, useMemo, useEffect } from "react";
 

@@ -4,7 +4,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 import { pageOne } from "@/lib/data";
 
-import { containerStyle, boxStyle } from "./section1.styles";
+import { containerStyle, boxStyle } from "../../styles/section1.styles";
 
 export default function Section1() {
   const { bodyHeight } = useWindowDimensions();

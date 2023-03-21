@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Box } from "@mui/system";
-import Footer from "./footer";
+// import Footer from "./footer";
 import Navbar from "./navbar";
 
 import { boxStyle } from "../styles/layout.styles";
@@ -14,7 +14,7 @@ export default function Layout(props: Props) {
     <Box sx={boxStyle}>
       <Navbar />
       <Box>{props.children}</Box>
-      <Footer />
+      {/* <Footer /> */}
     </Box>
   );
 }

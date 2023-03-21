@@ -1,6 +1,17 @@
+import Head from "next/head";
 import ContactPage from "@/components/contact";
-import { Box } from "@mui/material";
 
 export default function About() {
-  return <ContactPage />;
+  return (
+    <>
+      <Head>
+        <title>Contact</title>
+        <meta
+          name="description"
+          content="Contact page for Nextjs website template"
+        />
+      </Head>
+      <ContactPage />
+    </>
+  );
 }

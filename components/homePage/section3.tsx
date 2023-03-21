@@ -4,7 +4,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 import { pageThree } from "@/lib/data";
 
-import { containerStyle, boxStyle } from "./section3.styles";
+import { containerStyle, boxStyle } from "../../styles/section3.styles";
 
 export default function Section3() {
   const { bannerHeight, bodyHeight } = useWindowDimensions();

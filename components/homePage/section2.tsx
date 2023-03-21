@@ -10,7 +10,7 @@ import {
   boxStyle,
   carouselStyle,
   paperStyle,
-} from "./section2.styles";
+} from "../../styles/section2.styles";
 
 export default function Section2() {
   const { bodyHeight } = useWindowDimensions();
