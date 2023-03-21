@@ -6,17 +6,25 @@ This is a generic professional website template that will be used to quickly cre
 
 ## Getting Started
 
-First, run the development server:
+First, install the dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Customizations
+
+Data that is displayed on the various pages are currently provided in `lib/data.ts` as a collection of objects. Data can be updated there, or can be overwritten directly in the components if preferred.
+
+The theme used for the project, including the palette and fonts can be edited in `/styles/theme.tsx`. Individual components have style objects provided in `.style.tsx` files next to their associated `.tsx` component/page file.
 
 ## Technologies used
 
@@ -27,18 +35,6 @@ Material UI is used for the extensive component library and styling features.
 Nodemailer will be used on the API route to handle sending of e-mails generated from the contact form on the website.
 
 This project is being coded using TypeScript.
-
-## To-do
-
-- Complete API route and nodemailer setup
-- Update About page to include placeholders for badges:
-  - LinkedIn
-  - github
-  - Facebook
-  - etc
-- Move data for Carousel to an array and have it populate the carousel programatically instead of hard coded carousel cards
-- Move logic from display code for Contact Form and NavBar
-- Update documentation
 
 ## Resources:
 
