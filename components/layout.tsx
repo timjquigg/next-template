@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import Footer from "./footer";
 import Navbar from "./navbar";
 
-import { boxStyle } from "./layout.styles";
+import { boxStyle } from "../styles/layout.styles";
 
 type Props = {
   children?: ReactNode;

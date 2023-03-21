@@ -17,7 +17,7 @@ import {
   formStyle,
   textFieldStyle,
   buttonStyle,
-} from "./contactForm.styles";
+} from "../../styles/contactForm.styles";
 import useContactFormData from "@/hooks/useContactFormData";
 
 type Props = {

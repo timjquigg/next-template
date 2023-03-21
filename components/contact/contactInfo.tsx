@@ -32,7 +32,7 @@ import {
   cardStyle,
   imageStyle,
   listIconStyle,
-} from "./contactInfo.styles";
+} from "../../styles/contactInfo.styles";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 import { contact } from "@/lib/data";
 

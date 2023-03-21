@@ -3,7 +3,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 import { about } from "@/lib/data";
 
-import { containerStyle, boxStyle } from "./about.styles";
+import { containerStyle, boxStyle } from "../styles/about.styles";
 
 export default function About() {
   const { bodyHeight } = useWindowDimensions();
