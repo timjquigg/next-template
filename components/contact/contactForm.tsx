@@ -6,6 +6,7 @@ import {
   Box,
   useMediaQuery,
   Theme,
+  Snackbar,
 } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
@@ -38,11 +39,14 @@ export default function ContactForm(props: Props) {
     emailError,
     subjectError,
     bodyError,
+    open,
+    message,
     onEmailChange,
     onSubjectChange,
     onBodyChange,
     handleSubmit,
     handleCancel,
+    handleClose,
   } = useContactFormData();
 
   return (
@@ -119,6 +123,12 @@ export default function ContactForm(props: Props) {
           </ButtonGroup>
         </Box>
       </Box>
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={handleClose}
+        message={message}
+      />
     </Grid>
   );
 }
