@@ -1,12 +1,18 @@
 import { useState } from "react";
+import axios from "axios";
 
 export default function useContactFormData() {
+  // Data to be sent to Email API
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
+  // Errors to display
   const [emailError, setEmailError] = useState(" ");
   const [subjectError, setSubjectError] = useState(" ");
   const [bodyError, setBodyError] = useState(" ");
+  // Confirmation dialog
+  const [open, setOpen] = useState(false);
+  const [message, setMessage] = useState("");
 
   const onEmailChange = (value: string) => {
     setEmail(value);
@@ -21,6 +27,10 @@ export default function useContactFormData() {
   const onBodyChange = (value: string) => {
     setBody(value);
     setBodyError("");
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   const handleSubmit = () => {
@@ -44,7 +54,19 @@ export default function useContactFormData() {
     }
     if (!errors) {
       // Send to API route for e-mailing
-      handleCancel();
+      const data = { email, subject, body };
+      axios
+        .post("/api/email", data)
+        .then((res) => {
+          console.log(res);
+          setMessage("Email successfully sent");
+          setOpen(true);
+          handleCancel();
+        })
+        .catch((err) => {
+          setMessage("Error sending e-mail");
+          setOpen(true);
+        });
     }
   };
 
@@ -64,10 +86,13 @@ export default function useContactFormData() {
     emailError,
     subjectError,
     bodyError,
+    open,
+    message,
     onEmailChange,
     onSubjectChange,
     onBodyChange,
     handleSubmit,
     handleCancel,
+    handleClose,
   };
 }
