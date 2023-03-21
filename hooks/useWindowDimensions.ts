@@ -14,7 +14,6 @@ function getElementHeights(height: number) {
     document.getElementById("contactCard")?.clientHeight ?? 0;
   const bannerHeight = document.getElementById("banner")?.clientHeight ?? 0;
   const bodyHeight = height - bannerHeight;
-  console.log({ bannerHeight }, { bodyHeight }, { contactHeight });
   return { contactHeight, bannerHeight, bodyHeight };
 }
 

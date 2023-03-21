@@ -115,6 +115,27 @@ export default function ToggleColorMode({ children }: Props) {
           },
         },
       },
+      // Uncomment where needed to change fonts:
+      // typography: {
+      //   allVariants: {
+      //     fontFamily: [,].join(","),
+      //   },
+      //   h1: {
+      //     fontFamily: [,].join(","),
+      //   },
+      //   h2: {
+      //     fontFamily: [,].join(","),
+      //   },
+      //   h3: {
+      //     fontFamily: [,].join(","),
+      //   },
+      //   body1: {
+      //     fontFamily: [,].join(","),
+      //   },
+      //   body2: {
+      //     fontFamily: [,].join(","),
+      //   },
+      // },
     });
   }, [mode]);
 
