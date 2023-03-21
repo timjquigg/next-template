@@ -23,7 +23,7 @@ import {
   titleStyle,
   menuStyle,
   buttonStyle,
-} from "./navbar.styles";
+} from "../styles/navbar.styles";
 
 export default function Navbar() {
   const theme = useTheme();
@@ -47,7 +47,7 @@ export default function Navbar() {
         variant="text"
         component={Link}
         href={page.link}
-        sx={buttonStyle}
+        sx={buttonStyle(theme)}
       >
         {page.title}
       </Button>
@@ -62,7 +62,7 @@ export default function Navbar() {
         onClick={handleClose}
         component={Link}
         href={page.link}
-        sx={buttonStyle}
+        sx={buttonStyle(theme)}
       >
         {page.title}
       </MenuItem>
@@ -70,13 +70,13 @@ export default function Navbar() {
   });
 
   return (
-    <Paper id="banner" elevation={24} sx={bannerStyle}>
+    <Paper id="banner" elevation={24} sx={bannerStyle(theme)}>
       <Typography
         className="brand"
         component={Link}
         href="/"
         variant="h2"
-        sx={titleStyle}
+        sx={titleStyle(theme)}
       >
         {navData.title}
       </Typography>
@@ -86,17 +86,23 @@ export default function Navbar() {
           <Tooltip
             title={theme.palette.mode === "dark" ? "Light Mode" : "Dark Mode"}
           >
-            <IconButton onClick={colorMode.toggleColorMode}>
+            <IconButton
+              onClick={colorMode.toggleColorMode}
+              sx={buttonStyle(theme)}
+            >
               {theme.palette.mode === "dark" ? <LightMode /> : <DarkMode />}
             </IconButton>
           </Tooltip>
         </ButtonGroup>
       ) : (
         <ButtonGroup>
-          <IconButton onClick={colorMode.toggleColorMode}>
+          <IconButton
+            onClick={colorMode.toggleColorMode}
+            sx={buttonStyle(theme)}
+          >
             {theme.palette.mode === "dark" ? <LightMode /> : <DarkMode />}
           </IconButton>
-          <IconButton onClick={handleClick}>
+          <IconButton onClick={handleClick} sx={buttonStyle(theme)}>
             <MenuIcon />
           </IconButton>
           <Menu open={open} anchorEl={anchorEl} onClose={handleClose}>

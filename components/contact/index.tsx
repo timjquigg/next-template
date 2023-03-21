@@ -1,10 +1,10 @@
-import { Box, useMediaQuery, Theme } from "@mui/material";
+import { useMediaQuery, Theme } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import ContactForm from "@/components/contact/contactForm";
 import ContactInfo from "./contactInfo";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 
-import { containerStyle } from "./index.styles";
+import { containerStyle } from "../../styles/index.styles";
 
 export default function ContactPage() {
   const { bodyHeight } = useWindowDimensions();

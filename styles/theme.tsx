@@ -3,16 +3,25 @@ import { PaletteMode } from "@mui/material";
 import { useMediaQuery } from "@mui/material";
 import {
   createTheme,
+  Palette,
   PaletteColor,
+  PaletteColorOptions,
   PaletteOptions,
   responsiveFontSizes,
   SimplePaletteColorOptions,
+  ThemeOptions,
+  TypeBackground,
+  TypeText,
 } from "@mui/material/styles";
 import { createContext, useState, useMemo, useEffect } from "react";
 
 type Props = {
   children?: React.ReactNode;
 };
+
+interface DefaultPaletteOptions extends PaletteOptions {
+  primary?: SimplePaletteColorOptions;
+}
 
 export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
@@ -36,7 +45,7 @@ export default function ToggleColorMode({ children }: Props) {
   );
 
   let theme = useMemo(() => {
-    const lightPalette: PaletteOptions = {
+    const lightPalette = {
       primary: {
         main: "#83c5be",
         // light: "",
@@ -60,31 +69,74 @@ export default function ToggleColorMode({ children }: Props) {
       },
     };
 
-    const darkPalette: PaletteOptions = {
+    const darkPalette = {
       primary: {
         main: "#0a9396",
         light: "#94d2bd",
         dark: "#005f73",
+        // contrastText: "#FFF",
       },
+
       secondary: {
         main: "#ee9b00",
         light: "#e9d8a6",
         dark: "#ca6702",
+        // contrastText: "#FFF",
       },
+
       info: {
         main: "#ae2012",
         light: "#bb3e03",
         dark: "#9b2226",
+        // contrastText: "#FFF",
       },
+
       background: {
         default: "#001219",
         paper: "#005f73",
       },
+
       text: {
         primary: "#FFF",
         secondary: "rgba(255, 255, 255, 0.7)",
+        // disabled: "#000",
       },
     };
+    // const darkPalette = (): PaletteOptions  => {
+    //   const primary: PaletteColor = {
+    //     main: "#0a9396",
+    //     light: "#94d2bd",
+    //     dark: "#005f73",
+    //     contrastText: "#FFF",
+    //   };
+
+    //   const secondary: PaletteColor = {
+    //     main: "#ee9b00",
+    //     light: "#e9d8a6",
+    //     dark: "#ca6702",
+    //     contrastText: "#FFF",
+    //   };
+
+    //   const info: PaletteColor = {
+    //     main: "#ae2012",
+    //     light: "#bb3e03",
+    //     dark: "#9b2226",
+    //     contrastText: "#FFF",
+    //   };
+
+    //   const background: TypeBackground = {
+    //     default: "#001219",
+    //     paper: "#005f73",
+    //   };
+
+    //   const text: TypeText = {
+    //     primary: "#FFF",
+    //     secondary: "rgba(255, 255, 255, 0.7)",
+    //     disabled: "#000",
+    //   };
+
+    //   return { primary, secondary, info, background, text };
+    // };
 
     return createTheme({
       palette: {
