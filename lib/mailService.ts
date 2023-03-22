@@ -9,13 +9,13 @@ const sender = process.env.SMTP_SENDER ?? "";
 const website = process.env.BASE_URL ?? "";
 
 type Data = {
+  name: string;
   email: string;
   subject: string;
   body: string;
 };
 
 export default async function sendEmail(data: Data): Promise<void> {
-  console.log({ host }, { port }, { user }, { pass }, { sender }, { website });
   // create reusable transporter object using the default SMTP transport
   const transporter: Transporter = nodemailer.createTransport({
     host: host,
@@ -33,8 +33,12 @@ export default async function sendEmail(data: Data): Promise<void> {
       from: sender, // sender address
       to: sender, // list of receivers
       subject: data.subject, // Subject line
-      text: data.body, // plain text body
-      // html: "<b>Hello world?</b>", // html body
+      text: `Name: ${data.name}\nE-mail: ${data.email}\nMessage:${data.body}`,
+      html: `
+          <p>Name: ${data.name}</p>
+          <p>E-mail: ${data.email}</p>
+          <p>Message: ${data.body}</p>
+        `,
     });
 
     console.log(`Message sent: ${inquiry.messageId}`);
@@ -44,8 +48,11 @@ export default async function sendEmail(data: Data): Promise<void> {
       from: sender,
       to: data.email,
       subject: "Thank you for reaching out",
-      text: `Thank you for your inquiry at ${website}. We will get respond to you as soon as possible.`,
-      // html:
+      text: `Thank you ${data.name} for your inquiry at ${website}. We will respond to you as soon as possible.`,
+      html: `
+        <p>Thank you ${data.name} for your inquiry at ${website}. We will respond to you as soon as possible.</p>
+        <p>Here is a copy of your message:</p>
+        <p>${data.body}</p>`,
     });
 
     console.log(`Message sent: ${confirmation.messageId}`);
