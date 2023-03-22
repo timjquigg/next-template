@@ -56,7 +56,7 @@ export default function ContactForm(props: Props) {
       md={props.md}
       lg={props.lg}
       xl={props.xl}
-      sx={gridStyle}
+      sx={gridStyle(bodyHeight)}
     >
       <Box id="email_us" sx={boxStyle(bodyHeight, large)}>
         <Typography variant="h3">E-mail Us</Typography>
@@ -114,10 +114,20 @@ export default function ContactForm(props: Props) {
             sx={textFieldStyle}
           />
           <ButtonGroup>
-            <Button variant="contained" onClick={handleCancel} sx={buttonStyle}>
+            <Button
+              aria-label="Clear"
+              variant="contained"
+              onClick={handleCancel}
+              sx={buttonStyle}
+            >
               Clear
             </Button>
-            <Button variant="contained" onClick={handleSubmit} sx={buttonStyle}>
+            <Button
+              aria-label="Submit"
+              variant="contained"
+              onClick={handleSubmit}
+              sx={buttonStyle}
+            >
               Submit
             </Button>
           </ButtonGroup>

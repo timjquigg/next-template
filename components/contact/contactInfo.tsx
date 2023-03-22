@@ -58,7 +58,7 @@ export default function ContactInfo(props: Props) {
       md={props.md}
       lg={props.lg}
       xl={props.xl}
-      sx={gridStyle}
+      sx={gridStyle(bodyHeight)}
     >
       <Box id="contact_info" sx={boxStyle(bodyHeight)}>
         <Typography variant="h3">Contact Info</Typography>
@@ -110,6 +110,7 @@ export default function ContactInfo(props: Props) {
               <ButtonGroup sx={socialsStyle}>
                 {contact.hasOwnProperty("linkedIn") && (
                   <IconButton
+                    aria-label="LinkedIn Link"
                     onClick={() => window.open(contact.linkedIn, "_blank")}
                   >
                     <LinkedIn />
@@ -117,6 +118,7 @@ export default function ContactInfo(props: Props) {
                 )}
                 {contact.hasOwnProperty("facebook") && (
                   <IconButton
+                    aria-label="Facebook Link"
                     onClick={() => window.open(contact.facebook, "_blank")}
                   >
                     <Facebook />
@@ -124,6 +126,7 @@ export default function ContactInfo(props: Props) {
                 )}
                 {contact.hasOwnProperty("instagram") && (
                   <IconButton
+                    aria-label="Instagram Link"
                     onClick={() => window.open(contact.instagram, "_blank")}
                   >
                     <Instagram />
@@ -131,6 +134,7 @@ export default function ContactInfo(props: Props) {
                 )}
                 {contact.hasOwnProperty("youtube") && (
                   <IconButton
+                    aria-label="Youtube Link"
                     onClick={() => window.open(contact.youtube, "_blank")}
                   >
                     <YouTube />
@@ -138,6 +142,7 @@ export default function ContactInfo(props: Props) {
                 )}
                 {contact.hasOwnProperty("twitter") && (
                   <IconButton
+                    aria-label="Twitter Link"
                     onClick={() => window.open(contact.twitter, "_blank")}
                   >
                     <Twitter />
@@ -145,6 +150,7 @@ export default function ContactInfo(props: Props) {
                 )}
                 {contact.hasOwnProperty("github") && (
                   <IconButton
+                    aria-label="Github Link"
                     onClick={() => window.open(contact.github, "_blank")}
                   >
                     <GitHub />
