@@ -48,7 +48,7 @@ export const imageStyle = (
   medium: boolean,
   large: boolean,
   xLarge: boolean
-): SxProps => {
+) => {
   let diameter = contactCardHeight / 3;
 
   if (medium) {
@@ -63,9 +63,9 @@ export const imageStyle = (
     diameter = contactCardHeight / 1.5;
   }
   return {
-    m: "auto",
     height: diameter,
     width: diameter,
+    styles: { margin: "auto", borderRadius: "50%" },
   };
 };
 

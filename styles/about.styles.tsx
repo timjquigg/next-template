@@ -13,6 +13,5 @@ export const boxStyle = (bodyHeight: number): SxProps => {
     justifyContent: "center",
     width: "100%",
     height: bodyHeight,
-    mx: "1rem",
   };
 };

@@ -8,7 +8,6 @@ export const bannerStyle = (theme: Theme): SxProps => {
     justifyContent: "space-between",
     maxWidth: "1200px",
     width: "100%",
-    maxHeight: "100px",
     p: "1rem",
     mx: "auto",
     zIndex: 1,

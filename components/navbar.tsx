@@ -98,11 +98,18 @@ export default function Navbar() {
         <ButtonGroup>
           <IconButton
             onClick={colorMode.toggleColorMode}
+            aria-label={
+              theme.palette.mode === "dark" ? "Light Mode" : "Dark Mode"
+            }
             sx={buttonStyle(theme)}
           >
             {theme.palette.mode === "dark" ? <LightMode /> : <DarkMode />}
           </IconButton>
-          <IconButton onClick={handleClick} sx={buttonStyle(theme)}>
+          <IconButton
+            aria-label="Menu"
+            onClick={handleClick}
+            sx={buttonStyle(theme)}
+          >
             <MenuIcon />
           </IconButton>
           <Menu open={open} anchorEl={anchorEl} onClose={handleClose}>

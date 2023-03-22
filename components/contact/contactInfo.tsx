@@ -35,6 +35,7 @@ import {
 } from "../../styles/contactInfo.styles";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 import { contact } from "@/lib/data";
+import Image from "next/image";
 
 type Props = {
   xs?: number;
@@ -51,6 +52,20 @@ export default function ContactInfo(props: Props) {
   const large = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
   const xLarge = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"));
 
+  let diameter = contactCardHeight / 3;
+
+  if (medium) {
+    diameter = contactCardHeight / 2.5;
+  }
+
+  if (large) {
+    diameter = contactCardHeight / 2;
+  }
+
+  if (xLarge) {
+    diameter = contactCardHeight / 1.5;
+  }
+
   return (
     <Grid
       xs={props.xs}
@@ -64,10 +79,22 @@ export default function ContactInfo(props: Props) {
         <Typography variant="h3">Contact Info</Typography>
         <Box sx={{ p: "1rem", width: "100%" }}>
           <Card id="contactCard" sx={cardStyle(large)}>
-            <Avatar
+            <Image
               src={contact.profile}
+              priority
               alt="profile image"
-              sx={imageStyle(contactCardHeight, small, medium, large, xLarge)}
+              height={
+                imageStyle(contactCardHeight, small, medium, large, xLarge)
+                  .height
+              }
+              width={
+                imageStyle(contactCardHeight, small, medium, large, xLarge)
+                  .width
+              }
+              style={
+                imageStyle(contactCardHeight, small, medium, large, xLarge)
+                  .styles
+              }
             />
             <Box sx={listStyle}>
               <List>
