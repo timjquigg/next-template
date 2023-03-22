@@ -125,17 +125,17 @@ export default function ContactInfo(props: Props) {
                   <ListItemIcon sx={listIconStyle}>
                     <Email />
                   </ListItemIcon>
-                  <Typography variant="body2">johndoe@example.com</Typography>
+                  <Typography variant="body2">{contact.email}</Typography>
                 </ListItem>
                 <ListItem disableGutters>
                   <ListItemIcon sx={listIconStyle}>
                     <LocalPhone />
                   </ListItemIcon>
-                  <Typography variant="body2">(123) 456-7890</Typography>
+                  <Typography variant="body2">{contact.phone}</Typography>
                 </ListItem>
               </List>
               <ButtonGroup sx={socialsStyle}>
-                {contact.hasOwnProperty("linkedIn") && (
+                {contact.linkedIn.length > 0 && (
                   <IconButton
                     aria-label="LinkedIn Link"
                     onClick={() => window.open(contact.linkedIn, "_blank")}
@@ -143,7 +143,7 @@ export default function ContactInfo(props: Props) {
                     <LinkedIn />
                   </IconButton>
                 )}
-                {contact.hasOwnProperty("facebook") && (
+                {contact.facebook.length > 0 && (
                   <IconButton
                     aria-label="Facebook Link"
                     onClick={() => window.open(contact.facebook, "_blank")}
@@ -151,7 +151,7 @@ export default function ContactInfo(props: Props) {
                     <Facebook />
                   </IconButton>
                 )}
-                {contact.hasOwnProperty("instagram") && (
+                {contact.instagram.length > 0 && (
                   <IconButton
                     aria-label="Instagram Link"
                     onClick={() => window.open(contact.instagram, "_blank")}
@@ -159,7 +159,7 @@ export default function ContactInfo(props: Props) {
                     <Instagram />
                   </IconButton>
                 )}
-                {contact.hasOwnProperty("youtube") && (
+                {contact.youtube.length > 0 && (
                   <IconButton
                     aria-label="Youtube Link"
                     onClick={() => window.open(contact.youtube, "_blank")}
@@ -167,7 +167,7 @@ export default function ContactInfo(props: Props) {
                     <YouTube />
                   </IconButton>
                 )}
-                {contact.hasOwnProperty("twitter") && (
+                {contact.twitter.length > 0 && (
                   <IconButton
                     aria-label="Twitter Link"
                     onClick={() => window.open(contact.twitter, "_blank")}
@@ -175,7 +175,7 @@ export default function ContactInfo(props: Props) {
                     <Twitter />
                   </IconButton>
                 )}
-                {contact.hasOwnProperty("github") && (
+                {contact.github.length > 0 && (
                   <IconButton
                     aria-label="Github Link"
                     onClick={() => window.open(contact.github, "_blank")}
