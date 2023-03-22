@@ -17,6 +17,7 @@ export default function Layout(props: Props) {
         {`
           html {
             width: 100vw;
+            overflow-x: hidden;
           }
         `}
       </style>
