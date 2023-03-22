@@ -11,10 +11,20 @@ type Props = {
 
 export default function Layout(props: Props) {
   return (
-    <Box sx={boxStyle}>
-      <Navbar />
-      <Box>{props.children}</Box>
-      {/* <Footer /> */}
-    </Box>
+    <>
+      {/* This allows for the layout to be consist regardless if there is scrollable content */}
+      <style jsx global>
+        {`
+          html {
+            width: 100vw;
+          }
+        `}
+      </style>
+      <Box sx={boxStyle}>
+        <Navbar />
+        <Box>{props.children}</Box>
+        {/* <Footer /> */}
+      </Box>
+    </>
   );
 }
