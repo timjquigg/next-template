@@ -140,13 +140,13 @@ export default function ToggleColorMode({ children }: Props) {
       },
       components: {
         MuiTypography: {
-          defaultProps: {
-            sx: {
+          styleOverrides: {
+            root: {
               color:
                 mode === "light"
                   ? lightPalette?.text?.secondary
                   : darkPalette?.text?.secondary,
-              m: "0.5rem",
+              margin: "0.5rem",
             },
           },
         },
