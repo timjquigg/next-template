@@ -74,7 +74,6 @@ export default function useContactFormData() {
       axios
         .post("/api/email", data)
         .then((res) => {
-          console.log(res);
           setMessage("Email successfully sent");
           setOpen(true);
           handleCancel();
