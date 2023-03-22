@@ -33,14 +33,17 @@ export default function ContactForm(props: Props) {
   const large = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
 
   const {
+    name,
     email,
     subject,
     body,
+    nameError,
     emailError,
     subjectError,
     bodyError,
     open,
     message,
+    onNameChange,
     onEmailChange,
     onSubjectChange,
     onBodyChange,
@@ -61,6 +64,24 @@ export default function ContactForm(props: Props) {
       <Box id="email_us" sx={boxStyle(bodyHeight, large)}>
         <Typography variant="h3">E-mail Us</Typography>
         <Box sx={formStyle}>
+          <TextField
+            value={name}
+            onChange={(e) => onNameChange(e.target.value)}
+            variant="outlined"
+            fullWidth
+            // autoFocus
+            error={nameError.length > 1}
+            helperText={nameError}
+            label="Name"
+            type="text"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                handleSubmit();
+              }
+            }}
+            sx={textFieldStyle}
+          />
           <TextField
             value={email}
             onChange={(e) => onEmailChange(e.target.value)}
