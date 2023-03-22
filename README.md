@@ -24,11 +24,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 Data that is displayed on the various pages are currently provided in `lib/data.ts` as a collection of objects. Data can be updated there, or can be overwritten directly in the components if preferred.
 
-The theme used for the project, including the palette and fonts can be edited in `/styles/theme.tsx`. Individual components have style objects provided in `.style.tsx` files next to their associated `.tsx` component/page file.
+The theme used for the project, including the palette and fonts can be edited in `styles/theme.tsx`. Individual components have style objects provided in `.style.tsx` files prefixed with the component/page name. These files are also located in the `styles/` directory.
 
 ## Technologies used
 
-Next.js was used as the backbone for this project as the resulting pages can be CDN hosted and allow for a serverless API route to handle sending of contact e-mails.
+Next.js was used as the backbone for this project as the resulting pages can be CDN hosted and allow for a simple API route to handle sending of contact e-mails.
 
 Material UI is used for the extensive component library and styling features.
 
