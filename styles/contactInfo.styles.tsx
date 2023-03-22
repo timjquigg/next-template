@@ -1,9 +1,12 @@
 import { SxProps } from "@mui/material";
 
-export const gridStyle: SxProps = {
-  display: "flex",
-  justifyContent: "center",
-  p: 0,
+export const gridStyle = (bodyHeight: number): SxProps => {
+  return {
+    display: "flex",
+    justifyContent: "center",
+    p: 0,
+    height: bodyHeight,
+  };
 };
 
 export const boxStyle = (bodyHeight: number): SxProps => {

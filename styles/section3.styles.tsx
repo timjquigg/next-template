@@ -13,6 +13,7 @@ export const boxStyle = (bodyHeight: number): SxProps => {
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
+    maxWidth: "600px",
     height: bodyHeight,
   };
 };
